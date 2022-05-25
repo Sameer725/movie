@@ -1,32 +1,30 @@
 .header {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: space-between;
-  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
   padding: 0 3rem;
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 
   &__title {
-    font-family: 'Akronim';
-    text-transform: uppercase;
-
     backface-visibility: hidden;
-
+    font-family: 'Akronim';
     font-size: 5rem;
     font-weight: bolder;
     letter-spacing: 0.2rem;
+    text-transform: uppercase;
 
     @include respond(phone) {
-      letter-spacing: 1rem;
       font-family: 3rem;
+      letter-spacing: 1rem;
     }
   }
 
   &--sticky {
+    background-color: $color-black;
+    box-shadow: 0 0 0.4rem $color-primary;
+    left: 0;
     position: sticky;
     top: 0;
-    left: 0;
     z-index: 999;
-    box-shadow: 0 0 0.4rem $color-primary;
-    background-color: $color-black;
   }
 }

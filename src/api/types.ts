@@ -1,9 +1,9 @@
 export interface Movie {
+  genre: string
   id: number
+  image: string
   name: string
   productionYear: number
-  genre: string
-  synopsisShort: string
   synopsis: string
-  image: string
+  synopsisShort: string
 }

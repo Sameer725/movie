@@ -1,5 +1,4 @@
 import React from 'react'
-
 import {QueryClient, QueryClientProvider as ClientProvider} from 'react-query'
 
 function useConstant<T>(initializer: () => T) {

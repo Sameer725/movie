@@ -11,9 +11,9 @@ export const Loader = ({text}: LoaderProps) => {
     <div className="loader">
       {loaderText.map((item, index) => (
         <span
+          className="loader__text"
           key={item + index}
           style={{'--i': index} as React.CSSProperties}
-          className="loader__text"
         >
           {item}
         </span>

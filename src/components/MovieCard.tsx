@@ -1,6 +1,7 @@
-import {Movie} from 'api/types'
-import {IMAGES} from 'assets/images'
 import React, {useCallback} from 'react'
+
+import {IMAGES} from 'assets/images'
+import {Movie} from 'api/types'
 
 interface MovieCardProps {
   movie: Movie
@@ -14,11 +15,11 @@ export const MovieCard = ({movie, onClick}: MovieCardProps) => {
 
   return (
     <div
+      className="card"
+      onClick={onItemClick}
       style={{
         backgroundImage: `url(${IMAGES[movie.image as keyof typeof IMAGES]})`,
       }}
-      onClick={onItemClick}
-      className="card"
     >
       <div className="card__info">
         <span className="card__year">{movie.productionYear}</span>

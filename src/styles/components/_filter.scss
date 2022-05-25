@@ -2,24 +2,24 @@
   position: relative;
 
   &__select {
-    border: none;
-    outline: none;
-    padding: 0.8rem;
-    border-radius: 0.5rem;
     background-color: transparent;
+    border-radius: 0.5rem;
+    border: none;
+    color: $color-primary;
     font-size: 2rem;
     font-weight: bold;
     margin: 0 0.4rem;
+    outline: none;
+    padding: 0.8rem;
     text-transform: capitalize;
-    color: $color-primary;
   }
 
   &__option {
-    position: absolute;
-    padding: 6rem;
-    height: 10rem;
     border-radius: 0.3rem;
     color: $color-gray;
+    height: 10rem;
+    padding: 6rem;
+    position: absolute;
   }
 
   &__placeholder {

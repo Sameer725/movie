@@ -1,11 +1,12 @@
-import {useMovie} from 'api'
-import {IMAGES} from 'assets/images'
-import {Button} from 'components/Button'
-import {Header} from 'components/Header'
 import React, {useCallback} from 'react'
 import {useNavigate, useParams} from 'react-router'
-import {Loading} from './Loading'
+
 import {APP_ROUTES} from './routes'
+import {Button} from 'components/Button'
+import {Header} from 'components/Header'
+import {IMAGES} from 'assets/images'
+import {Loading} from './Loading'
+import {useMovie} from 'api'
 
 export const Movie = () => {
   const {movieId} = useParams()
@@ -21,7 +22,7 @@ export const Movie = () => {
   ) : (
     <>
       <Header title="Movie">
-        <Button title="Home" onClick={onClick} />
+        <Button onClick={onClick} title="Home" />
       </Header>
       <main className="movie">
         <section className="movie__image">

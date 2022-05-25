@@ -1,12 +1,12 @@
 .container {
-  display: flex;
   align-items: center;
-  justify-content: center;
+  display: flex;
   height: 80vh;
+  justify-content: center;
 
   h1 {
+    font-family: 'Akronim';
     font-size: 4rem;
     font-weight: bolder;
-    font-family: 'Akronim';
   }
 }

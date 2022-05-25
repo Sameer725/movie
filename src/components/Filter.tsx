@@ -1,13 +1,13 @@
 import React, {useCallback} from 'react'
 
 interface FilterProps {
+  data: (string | number)[]
   name: string
   onSelect(item?: string): void
-  data: (string | number)[]
   value?: string
 }
 
-export const Filter = ({name, onSelect, data, value}: FilterProps) => {
+export const Filter = ({data, name, onSelect, value}: FilterProps) => {
   const onChange = useCallback(
     (e: React.ChangeEvent<HTMLSelectElement>) => {
       onSelect(e.target.value)
@@ -18,24 +18,24 @@ export const Filter = ({name, onSelect, data, value}: FilterProps) => {
   return (
     <div className="filter">
       <select
-        value={value}
-        onChange={onChange}
         className="filter__select"
         name={name}
+        onChange={onChange}
+        value={value}
       >
-        <option selected={value === undefined} hidden disabled>
+        <option disabled hidden selected={value === undefined}>
           {name}
         </option>
         {data.map(item => (
-          <option key={item} className="filter__option" value={item}>
+          <option className="filter__option" key={item} value={item}>
             {item}
           </option>
         ))}
       </select>
       {value ? (
         <div
-          onClick={() => onSelect(undefined)}
           className="filter__placeholder"
+          onClick={() => onSelect(undefined)}
         >
           {value}
         </div>

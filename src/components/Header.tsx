@@ -1,8 +1,8 @@
 import React, {useLayoutEffect, useState} from 'react'
 
 interface HeaderProps {
-  title: string
   children?: React.ReactNode
+  title: string
 }
 
 export const Header = ({title, children}: HeaderProps) => {

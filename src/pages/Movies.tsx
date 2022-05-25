@@ -1,12 +1,13 @@
-import {FilterParams, useFilter, useMovies} from 'api'
-import {Filter} from 'components/Filter'
-import {Header} from 'components/Header'
-import {MovieCard} from 'components/MovieCard'
 import React, {useState} from 'react'
 import {useNavigate} from 'react-router'
-import {ErrorFallback} from './ErrorFallback'
-import {Loading} from './Loading'
+
 import {APP_ROUTES} from './routes'
+import {ErrorFallback} from './ErrorFallback'
+import {Filter} from 'components/Filter'
+import {FilterParams, useFilter, useMovies} from 'api'
+import {Header} from 'components/Header'
+import {Loading} from './Loading'
+import {MovieCard} from 'components/MovieCard'
 
 export const Movies = () => {
   const {data, isLoading: isFilterLoading} = useFilter()
@@ -32,14 +33,14 @@ export const Movies = () => {
         {isFilterLoading ? null : (
           <div style={{display: 'flex'}}>
             <Filter
-              name="year"
               data={data?.years ?? []}
+              name="year"
               onSelect={onSelectYear}
               value={filter?.year}
             />
             <Filter
-              name="genre"
               data={data?.genres ?? []}
+              name="genre"
               onSelect={onSelectGenre}
               value={filter?.genre}
             />
@@ -52,7 +53,7 @@ export const Movies = () => {
         <main>
           <section className="movies">
             {movies?.map(movie => (
-              <MovieCard onClick={onClick} key={movie.id} movie={movie} />
+              <MovieCard key={movie.id} movie={movie} onClick={onClick} />
             ))}
           </section>
         </main>
