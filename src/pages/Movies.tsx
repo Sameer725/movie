@@ -3,11 +3,9 @@ import {useNavigate} from 'react-router'
 
 import {APP_ROUTES} from './routes'
 import {ErrorFallback} from './ErrorFallback'
-import {Filter} from 'components/Filter'
+import {Filter, Header, MovieCard} from 'components'
 import {FilterParams, useFilter, useMovies} from 'api'
-import {Header} from 'components/Header'
 import {Loading} from './Loading'
-import {MovieCard} from 'components/MovieCard'
 
 export const Movies = () => {
   const {data, isLoading: isFilterLoading} = useFilter()
