@@ -11,7 +11,7 @@ export const Header = ({title, children}: HeaderProps) => {
   useLayoutEffect(() => {
     const eventHandler = () => {
       if (window.scrollY >= 10) {
-        setStyle(state => state + ' header--sticky')
+        setStyle('header header--sticky')
       } else {
         setStyle('header')
       }

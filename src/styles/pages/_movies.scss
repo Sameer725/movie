@@ -1,6 +1,9 @@
 .movies {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+  height: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(40rem, auto));
   gap: 2rem;
   padding: 2rem 0;
+  justify-content: center;
+  align-content: center;
 }
