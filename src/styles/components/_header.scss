@@ -2,10 +2,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  padding: 0 3rem;
 
   &__title {
     font-family: 'Akronim';
-    color: $color-primary;
     text-transform: uppercase;
 
     backface-visibility: hidden;
@@ -18,5 +19,14 @@
       letter-spacing: 1rem;
       font-family: 3rem;
     }
+  }
+
+  &--sticky {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    box-shadow: 0 0 0.4rem $color-primary;
+    background-color: $color-black;
   }
 }

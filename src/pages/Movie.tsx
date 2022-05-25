@@ -11,11 +11,13 @@ export const Movie = () => {
   return isLoading ? (
     <Loading />
   ) : (
-    <main>
+    <>
       <Header title="Movie" />
-      <section>
-        {movie?.name} {movie?.productionYear}
-      </section>
-    </main>
+      <main>
+        <section>
+          {movie?.name} {movie?.productionYear}
+        </section>
+      </main>
+    </>
   )
 }

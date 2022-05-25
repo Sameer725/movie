@@ -17,14 +17,15 @@ export const Movies = () => {
   return isLoading ? (
     <Loading />
   ) : (
-    <main>
+    <>
       <Header title="Movies" />
-
-      <section className="movies">
-        {movies?.map(movie => (
-          <MovieCard onClick={onClick} key={movie.id} movie={movie} />
-        ))}
-      </section>
-    </main>
+      <main>
+        <section className="movies">
+          {movies?.map(movie => (
+            <MovieCard onClick={onClick} key={movie.id} movie={movie} />
+          ))}
+        </section>
+      </main>
+    </>
   )
 }
