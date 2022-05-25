@@ -16,6 +16,7 @@ export const useMovies = (filterParam: FilterParams = {}) => {
         const movies: Movie[] = data.map((movie, index) => ({
           ...movie,
           id: index,
+          image: movie.name.replace(/\W+/g, ''),
         }))
         if (filterParam.genre) {
           return movies.filter(movie => movie.genre === filterParam.genre)

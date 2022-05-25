@@ -6,6 +6,9 @@ export const Movie = () => {
   const {movieId} = useParams()
   const {movie, isLoading} = useMovie(movieId)
 
-  console.log(movie, isLoading)
-  return <div>Movie</div>
+  return (
+    <div>
+      {movie?.name} {movie?.productionYear}
+    </div>
+  )
 }

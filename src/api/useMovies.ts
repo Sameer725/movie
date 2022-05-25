@@ -10,6 +10,7 @@ export const useMovie = (movieId?: string) => {
         const movies: Movie[] = data.map((movie, index) => ({
           ...movie,
           id: index,
+          image: movie.name.replace(/\W+/g, ''),
         }))
         const movie = movies.find(movie => parseInt(movieId ?? '') === movie.id)
 

@@ -1,10 +1,27 @@
 import {useMovies} from 'api'
+import {Header} from 'components/Header'
+import {MovieCard} from 'components/MovieCard'
 import React from 'react'
+import {useNavigate} from 'react-router'
+import {APP_ROUTES} from './routes'
 
 export const Movies = () => {
-  const {movies, isLoading} = useMovies({productionYear: 2010})
+  const {movies, isLoading} = useMovies()
+  const navigate = useNavigate()
 
-  console.log(movies, isLoading)
+  const onClick = (id: number) => {
+    navigate(APP_ROUTES.MOVIE.replace(':movieId', id.toString()))
+  }
 
-  return <div>Movies</div>
+  return (
+    <main>
+      <Header />
+
+      <section className="movies">
+        {movies?.map(movie => (
+          <MovieCard onClick={onClick} key={movie.id} movie={movie} />
+        ))}
+      </section>
+    </main>
+  )
 }

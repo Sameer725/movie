@@ -1,5 +1,5 @@
 export enum APP_ROUTES {
-  MOVIES = 'movies',
-  MOVIE = 'movie/:movieId',
+  MOVIES = '/',
+  MOVIE = 'movies/:movieId',
   ERROR = '*',
 }

@@ -1,0 +1,83 @@
+.card {
+  display: flex;
+  position: relative;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 20rem;
+  border: 1px solid $color-gray;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  &__synopsis {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: $color-gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 3rem;
+    transform: translateY(100%);
+    transition: all 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
+    overflow: hidden;
+
+    span {
+      margin: 0.1rem 0;
+      letter-spacing: 0.2rem;
+      font-weight: 800;
+      color: $color-white;
+    }
+  }
+
+  &__info {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem 3rem;
+
+    span {
+      margin: 0.1rem 0;
+      letter-spacing: 0.2rem;
+    }
+  }
+
+  &__year {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: $color-gray-light;
+  }
+
+  &__name {
+    font-size: 1.6rem;
+    font-weight: bolder;
+    color: $color-white;
+  }
+
+  &__genre {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  &::before {
+    content: '';
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    right: 0;
+    background-color: rgba($color-gray, 0.6);
+  }
+
+  &:hover &__synopsis {
+    transform: translateY(0%);
+  }
+}
