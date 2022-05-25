@@ -2,4 +2,21 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  &__title {
+    font-family: 'Akronim';
+    color: $color-primary;
+    text-transform: uppercase;
+
+    backface-visibility: hidden;
+
+    font-size: 5rem;
+    font-weight: bolder;
+    letter-spacing: 0.2rem;
+
+    @include respond(phone) {
+      letter-spacing: 1rem;
+      font-family: 3rem;
+    }
+  }
 }

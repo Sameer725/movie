@@ -3,6 +3,7 @@ import {Header} from 'components/Header'
 import {MovieCard} from 'components/MovieCard'
 import React from 'react'
 import {useNavigate} from 'react-router'
+import {Loading} from './Loading'
 import {APP_ROUTES} from './routes'
 
 export const Movies = () => {
@@ -13,9 +14,11 @@ export const Movies = () => {
     navigate(APP_ROUTES.MOVIE.replace(':movieId', id.toString()))
   }
 
-  return (
+  return isLoading ? (
+    <Loading />
+  ) : (
     <main>
-      <Header />
+      <Header title="Movies" />
 
       <section className="movies">
         {movies?.map(movie => (

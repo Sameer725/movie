@@ -1,14 +1,21 @@
 import {useMovie} from 'api'
+import {Header} from 'components/Header'
 import React from 'react'
 import {useParams} from 'react-router'
+import {Loading} from './Loading'
 
 export const Movie = () => {
   const {movieId} = useParams()
   const {movie, isLoading} = useMovie(movieId)
 
-  return (
-    <div>
-      {movie?.name} {movie?.productionYear}
-    </div>
+  return isLoading ? (
+    <Loading />
+  ) : (
+    <main>
+      <Header title="Movie" />
+      <section>
+        {movie?.name} {movie?.productionYear}
+      </section>
+    </main>
   )
 }

@@ -1,9 +1,15 @@
 import React from 'react'
 
-export const Header = () => {
+interface HeaderProps {
+  title: string
+  children?: React.ReactNode
+}
+
+export const Header = ({title, children}: HeaderProps) => {
   return (
     <header className="header">
-      <h1 className="heading-primary heading-primary--main">Movies</h1>
+      <h1 className="header__title">{title}</h1>
+      {children}
     </header>
   )
 }

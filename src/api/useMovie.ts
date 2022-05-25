@@ -1,16 +1,10 @@
-import {useQuery, useQueryClient} from 'react-query'
+import {useQuery} from 'react-query'
 import {client} from 'utils'
 import {Movie} from './types'
 
-interface FilterParams {
-  genre?: string
-  productionYear?: number
-}
-
-export const useMovies = (filterParam: FilterParams = {}) => {
-  const queryClient = useQueryClient()
-  const {data: movies, ...rest} = useQuery<Movie[]>({
-    queryKey: 'movies',
+export const useMovie = (movieId?: string) => {
+  const {data: movie, ...rest} = useQuery<Movie | undefined>({
+    queryKey: ['movie', {movieId}],
     queryFn: () =>
       client().then((data: Movie[]) => {
         const movies: Movie[] = data.map((movie, index) => ({
@@ -18,24 +12,11 @@ export const useMovies = (filterParam: FilterParams = {}) => {
           id: index,
           image: movie.name.replace(/\W+/g, ''),
         }))
-        if (filterParam.genre) {
-          return movies.filter(movie => movie.genre === filterParam.genre)
-        }
+        const movie = movies.find(movie => parseInt(movieId ?? '') === movie.id)
 
-        if (filterParam.productionYear) {
-          return movies.filter(
-            movie => movie.productionYear === filterParam.productionYear,
-          )
-        }
-
-        return movies
+        return movie
       }),
-    onSuccess: movies => {
-      for (const movie of movies) {
-        queryClient.setQueryData(['movie', {movieId: movie.id}], movie)
-      }
-    },
   })
 
-  return {...rest, movies}
+  return {...rest, movie}
 }

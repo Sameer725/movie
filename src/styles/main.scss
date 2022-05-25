@@ -1,10 +1,12 @@
+@import './abstract/animation';
 @import './abstract/mixins';
 @import './abstract/variables';
 
 @import './base/base';
-@import './base/typography';
 
 @import './components/card';
 @import './components/header';
+@import './components/loader';
 
+@import './pages/loading';
 @import './pages/movies';
