@@ -4,6 +4,7 @@ import {Header} from 'components/Header'
 import {MovieCard} from 'components/MovieCard'
 import React, {useState} from 'react'
 import {useNavigate} from 'react-router'
+import {ErrorFallback} from './ErrorFallback'
 import {Loading} from './Loading'
 import {APP_ROUTES} from './routes'
 
@@ -47,7 +48,7 @@ export const Movies = () => {
       </Header>
       {isLoading ? (
         <Loading />
-      ) : (
+      ) : movies && movies?.length > 0 ? (
         <main>
           <section className="movies">
             {movies?.map(movie => (
@@ -55,6 +56,8 @@ export const Movies = () => {
             ))}
           </section>
         </main>
+      ) : (
+        <ErrorFallback message="No Movie Found" />
       )}
     </>
   )

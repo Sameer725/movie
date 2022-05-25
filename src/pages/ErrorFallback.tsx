@@ -1,5 +1,15 @@
 import React from 'react'
 
-export const ErrorFallback = () => {
-  return <div>ErrorFallback</div>
+interface ErrorFallBackProps {
+  message?: string
+}
+
+export const ErrorFallback = ({
+  message = 'Page Not Found',
+}: ErrorFallBackProps) => {
+  return (
+    <main className="container">
+      <h1>{message}</h1>
+    </main>
+  )
 }
